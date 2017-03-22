@@ -104,7 +104,7 @@ class XMLSecurityDSig
     /**
      * @param string $prefix
      */
-    public function __construct($prefix = 'ds', $idValue = null)
+    public function __construct($prefix = 'ds', $signId = null)
     {
         $template = self::BASE_TEMPLATE;
         if (!empty($prefix)) {
@@ -115,9 +115,9 @@ class XMLSecurityDSig
         }
         $sigdoc = new DOMDocument();
         $sigdoc->loadXML($template);
-        if (!empty($idValue)) {
+        if (!empty($signId)) {
             $id = $sigdoc->createAttribute('Id');
-            $id->value = '#' . $idValue;
+            $id->value = '#' . $signId;
             $sigdoc->documentElement->appendChild($id);
         }
         $this->sigNode = $sigdoc->documentElement;
