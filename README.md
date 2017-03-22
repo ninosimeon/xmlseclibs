@@ -1,17 +1,13 @@
-#xmlseclibs 
+#xmlseclibs_sunat
 
-xmlseclibs is a library written in PHP for working with XML Encryption and Signatures.
+xmlseclibs_sunat es una librería hecha en PHP para la firma electrónica de documentos XML.
 
-The author of xmlseclibs is Rob Richards.
+El autor de xmlseclibs es Rob Richards. Repositorio oficial: https://github.com/robrichards/xmlseclibs
 
-# Branches
-Both the master and the 1.4 branches are actively maintained. The 1.3 branch is only updated for security related issues.
-* master: Contains namespace support requiring 5.3+.
-* 1.4: Contains auto-loader support while also maintaining backwards compatiblity with the 1.3 version using the xmlseclibs.php file. Supports PHP 5.2+
 
-# Requirements
+# Requerimientos
 
-xmlseclibs requires PHP version 5.3 or greater.
+xmlseclibs_sunat requiere PHP 5.3 o mayor.
 
 
 ## How to Install
@@ -19,7 +15,7 @@ xmlseclibs requires PHP version 5.3 or greater.
 Install with [`composer.phar`](http://getcomposer.org).
 
 ```sh
-php composer.phar require "robrichards/xmlseclibs"
+php composer.phar require "ninosimeon/xmlseclibs_sunat"
 ```
 
 
@@ -43,7 +39,7 @@ $doc = new DOMDocument();
 $doc->load('./path/to/file/tobesigned.xml');
 
 // Create a new Security object 
-$objDSig = new XMLSecurityDSig();
+$objDSig = new XMLSecurityDSig('ds', $signId);
 // Use the c14n exclusive canonicalization
 $objDSig->setCanonicalMethod(XMLSecurityDSig::EXC_C14N);
 // Sign using SHA-256
